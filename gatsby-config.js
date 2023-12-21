@@ -6,5 +6,5 @@ module.exports = {
     title: `TobiWrites`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [],
+  plugins: ['gatsby-plugin-netlify'],
 }
