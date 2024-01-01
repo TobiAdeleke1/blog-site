@@ -23,7 +23,7 @@ const COLORS = [
 ]
 
 const NotFound = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const canvasRef = useRef(null)
   const [particles, setParticles] = useState([])
   const isCreated = useRef(false)
   const requestRef = useRef()
