@@ -20,17 +20,7 @@ const About = () => {
       }
     }
   `)
-//   const data = useStaticQuery<Queries.Query>(graphql`
-//     query About {
-//       allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/about/" } }) {
-//         edges {
-//           node {
-//             html
-//           }
-//         }
-//       }
-//     }
-//   `)
+
 
   const markdown = data.allMarkdownRemark.edges[0].node.html
 

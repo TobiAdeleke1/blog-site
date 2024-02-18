@@ -802,6 +802,10 @@ type GRVSCCodeBlockFilterInput = {
   readonly tokenizedLines: InputMaybe<GRVSCTokenizedLineFilterListInput>;
 };
 
+type GRVSCCodeBlockFilterListInput = {
+  readonly elemMatch: InputMaybe<GRVSCCodeBlockFilterInput>;
+};
+
 type GRVSCCodeBlockGroupConnection = {
   readonly distinct: ReadonlyArray<Scalars['String']>;
   readonly edges: ReadonlyArray<GRVSCCodeBlockEdge>;
@@ -1959,7 +1963,11 @@ type MarkdownHeadingSortInput = {
 };
 
 type MarkdownRemark = Node & {
+  /** Returns the first child node of type GRVSCCodeBlock or null if there are no children of given type on this node */
+  readonly childGrvscCodeBlock: Maybe<GRVSCCodeBlock>;
   readonly children: ReadonlyArray<Node>;
+  /** Returns all children nodes filtered by type GRVSCCodeBlock */
+  readonly childrenGrvscCodeBlock: Maybe<ReadonlyArray<Maybe<GRVSCCodeBlock>>>;
   readonly excerpt: Maybe<Scalars['String']>;
   readonly excerptAst: Maybe<Scalars['JSON']>;
   readonly fields: Maybe<MarkdownRemarkFields>;
@@ -2051,7 +2059,9 @@ type MarkdownRemarkEdge = {
 };
 
 type MarkdownRemarkFieldSelector = {
+  readonly childGrvscCodeBlock: InputMaybe<GRVSCCodeBlockFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
+  readonly childrenGrvscCodeBlock: InputMaybe<GRVSCCodeBlockFieldSelector>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
   readonly excerptAst: InputMaybe<FieldSelectorEnum>;
   readonly fields: InputMaybe<MarkdownRemarkFieldsFieldSelector>;
@@ -2086,7 +2096,9 @@ type MarkdownRemarkFieldsSortInput = {
 };
 
 type MarkdownRemarkFilterInput = {
+  readonly childGrvscCodeBlock: InputMaybe<GRVSCCodeBlockFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenGrvscCodeBlock: InputMaybe<GRVSCCodeBlockFilterListInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
   readonly excerptAst: InputMaybe<JSONQueryOperatorInput>;
   readonly fields: InputMaybe<MarkdownRemarkFieldsFilterInput>;
@@ -2194,7 +2206,9 @@ type MarkdownRemarkGroupConnection_sumArgs = {
 };
 
 type MarkdownRemarkSortInput = {
+  readonly childGrvscCodeBlock: InputMaybe<GRVSCCodeBlockSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
+  readonly childrenGrvscCodeBlock: InputMaybe<GRVSCCodeBlockSortInput>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
   readonly excerptAst: InputMaybe<SortOrderEnum>;
   readonly fields: InputMaybe<MarkdownRemarkFieldsSortInput>;
@@ -2578,7 +2592,9 @@ type Query_imageSharpArgs = {
 
 
 type Query_markdownRemarkArgs = {
+  childGrvscCodeBlock: InputMaybe<GRVSCCodeBlockFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
+  childrenGrvscCodeBlock: InputMaybe<GRVSCCodeBlockFilterListInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
   excerptAst: InputMaybe<JSONQueryOperatorInput>;
   fields: InputMaybe<MarkdownRemarkFieldsFilterInput>;
@@ -3564,10 +3580,15 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
-type HomeQueryVariables = Exact<{ [key: string]: never; }>;
+type homeAndAboutQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomeQuery = { readonly allMarkdownRemark: { readonly totalCount: number, readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }>, readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly frontmatter: { readonly title: string | null, readonly category: string | null, readonly date: string | null, readonly desc: string | null, readonly alt: string | null, readonly thumbnail: { readonly base: string, readonly childImageSharp: { readonly id: string } | null } | null } | null, readonly fields: { readonly slug: string | null } | null } }> } };
+type homeAndAboutQuery = { readonly home: { readonly totalCount: number, readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }>, readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly frontmatter: { readonly title: string | null, readonly category: string | null, readonly date: string | null, readonly desc: string | null, readonly alt: string | null, readonly thumbnail: { readonly base: string, readonly childImageSharp: { readonly id: string } | null } | null } | null, readonly fields: { readonly slug: string | null } | null } }> }, readonly about: { readonly edges: ReadonlyArray<{ readonly node: { readonly html: string | null } }> } };
+
+type PostQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PostQuery = { readonly allMarkdownRemark: { readonly totalCount: number, readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }>, readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly frontmatter: { readonly title: string | null, readonly category: string | null, readonly date: string | null, readonly desc: string | null, readonly alt: string | null, readonly thumbnail: { readonly base: string, readonly childImageSharp: { readonly id: string } | null } | null } | null, readonly fields: { readonly slug: string | null } | null } }> } };
 
 type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 

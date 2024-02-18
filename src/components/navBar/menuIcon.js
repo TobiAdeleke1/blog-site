@@ -2,9 +2,6 @@ import React from "react"
 
 import styled from "styled-components"
 
-// import type { UseMenuReturnType } from "./useMenu"
-
-// const MenuIcon: React.FC<Omit<UseMenuReturnType, "setToggle">> = ({
 const MenuIcon = ({
   toggle,
   handleClick,

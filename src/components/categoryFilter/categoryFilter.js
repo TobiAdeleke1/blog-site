@@ -1,7 +1,6 @@
 import React, { useMemo, useRef } from "react"
 
 import { Link } from "gatsby"
-// import type { GatsbyLinkProps } from "gatsby"
 import kebabCase from "lodash/kebabCase"
 import styled from "styled-components"
 
@@ -10,17 +9,10 @@ import useScrollCenter from "./useScrollCenter"
 const ACTIVE = "active"
 const ALL_CATEGORY_NAME = "All"
 
-// interface CategoryFilterProps {
-//   categoryList: readonly Queries.MarkdownRemarkGroupConnection[]
-// }
 
-// type LinkPropsGetter = GatsbyLinkProps<unknown>["getProps"]
 
-// const CategoryFilter: React.FC<CategoryFilterProps> = ({ categoryList }) => {
 const CategoryFilter = ({ categoryList }) => {
-//   const categoryRef = useRef<HTMLUListElement>(null)
   const categoryRef = useRef(null)
-//   const isActive: LinkPropsGetter = ({ isCurrent }) =>
   const isActive = ({ isCurrent }) =>
     isCurrent ? { id: ACTIVE, tabIndex: -1 } : {}
 
@@ -47,10 +39,6 @@ const CategoryFilter = ({ categoryList }) => {
                 getProps={isActive}
                 to={`/category/${kebabCase(fieldValue)}/`}
               >
-              {/* <CategoryButton
-                getProps={isActive}
-                to={`/category/${kebabCase(fieldValue!)}/`}
-              > */}
                 {fieldValue}
               </CategoryButton>
             </li>

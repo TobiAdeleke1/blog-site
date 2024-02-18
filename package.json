@@ -2,6 +2,7 @@
   "name": "gatsby-starter-apple",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://github.com/sungik-choi/gatsby-starter-apple",
   "description": "Gatsby blog starter kit with beautiful and responsive design",
   "author": "TobiAdeleke1",
   "keywords": [
@@ -40,12 +41,12 @@
     "vscode-theme-github-light": "https://github.com/yunlingz/vscode-theme-github-light"
   },
   "devDependencies": {
-    "gatsby-plugin-netlify": "^5.1.1",
-    "graphql": "^16.8.1",
-    "lodash": "^4.17.21",
     "disable-scroll": "^0.6.0",
     "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-netlify": "^5.1.1",
     "gatsby-plugin-robots-txt": "^1.8.0",
+    "graphql": "^16.8.1",
+    "lodash": "^4.17.21",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

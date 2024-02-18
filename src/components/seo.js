@@ -8,18 +8,6 @@ import defaultOpenGraphImage from "../images/og-default.png"
 
 const DEFAULT_LANG = "en"
 
-// type Meta = React.DetailedHTMLProps<
-//   React.MetaHTMLAttributes<HTMLMetaElement>,
-//   HTMLMetaElement
-// >[]
-
-// interface SEOProps extends Pick<Queries.MarkdownRemarkFrontmatter, "title"> {
-//   desc?: Queries.Maybe<string>
-//   image?: Queries.Maybe<string>
-//   meta?: Meta
-// }
-
-// const SEO: React.FC<SEOProps> = ({ title, desc = "", image }) => {
 const SEO = ({ title, desc = "", image }) => {
   const site = useSiteMetadata()
   const description = desc || site.description

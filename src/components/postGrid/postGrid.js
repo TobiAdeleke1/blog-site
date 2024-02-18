@@ -3,26 +3,11 @@ import React, { useRef } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-// import type Post from "~/src/types/Post"
-
 import Card from "./card"
 import { ThumbnailWrapper } from "./card/centeredImg"
 import useInfiniteScroll from "./useInfiniteScroll"
 
-// interface PostGridProps {
-//   posts: Post[]
-// }
-
-// const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
-//   const scrollEdgeRef = useRef<HTMLDivElement>(null)
-//   const currentList = useInfiniteScroll({
-//     posts,
-//     scrollEdgeRef,
-//     maxPostNum: 10,
-//     offsetY: 200,
-//   })
 const PostGrid = ({ posts }) => {
-  // const scrollEdgeRef = useRef<HTMLDivElement>(null)
   const scrollEdgeRef = useRef(null)
   const currentList = useInfiniteScroll({
     posts,

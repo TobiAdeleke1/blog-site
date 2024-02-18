@@ -1,29 +1,26 @@
 import React, { useLayoutEffect, useState } from "react"
-// import type { PageProps } from "gatsby"
-// import { PageProps } from "gatsby"
+// import { graphql, useStaticQuery } from "gatsby"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
-import CategoryFilter from "~/src/components/categoryFilter"
+// import CategoryFilter from "~/src/components/categoryFilter"
 import PostGrid from "~/src/components/postGrid"
 import SEO from "~/src/components/seo"
-import useSiteMetadata from "~/src/hooks/useSiteMetadata"
+// import useSiteMetadata from "~/src/hooks/useSiteMetadata"
 import Layout from "~/src/layouts/layout"
-// import Post from "~/src/types/Post"
-// import type Post from "~/src/types/Post"
+import Markdown from "~/src/styles/markdown"
+import { rhythm } from "~/src/styles/typography"
 
-// const Home = ({
-//   pageContext,
-//   data,
-// }: PageProps<Queries.Query, Queries.MarkdownRemarkFrontmatter>) => {
+
 const Home = ({
   pageContext,
   data,
 }) => {
-  // const [posts, setPosts] = useState<Post[]>([])
   const [posts, setPosts] = useState([])
   const currentCategory = pageContext.category
-  const postData = data.allMarkdownRemark.edges
+  console.log(data)
+  // const postData = data.home.allMarkdownRemark.edges
+  const postData = data.home.edges
 
   useLayoutEffect(() => {
     const filteredPostData = currentCategory
@@ -34,11 +31,8 @@ const Home = ({
 
     filteredPostData.forEach(({ node }) => {
       const { id } = node
-      // const { slug } = node.fields!
       const { slug } = node.fields
-      // const { title, desc, date, category, thumbnail, alt } = node.frontmatter!
       const { title, desc, date, category, thumbnail, alt } = node.frontmatter
-      // const { childImageSharp } = thumbnail!
       const { childImageSharp } = thumbnail
 
       setPosts(prevPost => [
@@ -57,20 +51,62 @@ const Home = ({
     })
   }, [currentCategory, postData])
 
-  const site = useSiteMetadata()
-  const postTitle = currentCategory || site.postTitle
+  // const site = useSiteMetadata()
+  // const postTitle = currentCategory || site.postTitle
+  const postTitle = "Recent Posts"
+  // const aboutData = useStaticQuery(graphql`
+  //   query About {
+  //     allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/about/" } }) {
+  //       edges {
+  //         node {
+  //           html
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
+  // const markdown = aboutData.allMarkdownRemark.edges[0].node.html 
+  const markdown = data.about.edges[0].node.html 
+
+  // categoryList={data.home.allMarkdownRemark.group}
   return (
+    <>
     <Layout>
+      {/* <SEO title="About" /> */}
+      <SEO title="Home" />
+      <Container
+        dangerouslySetInnerHTML={{ __html: markdown ?? "" }}
+        rhythm={rhythm}
+       >
+       
+       </Container> 
+       
+       <Main>
+        <Content>
+          <PostTitle>{postTitle}</PostTitle>
+          <PostGrid posts={posts.slice(0,2)} />
+        </Content>
+        </Main>
+        <MainProject>
+          <ContentProject>
+            <ProjectTitle>Notable Projects</ProjectTitle>
+            <PostGrid posts={posts.slice(0,1)} />
+          </ContentProject>
+        </MainProject>        
+     </Layout>
+     {/* <Layout>
       <SEO title="Home" />
       <Main>
         <Content>
-          <CategoryFilter categoryList={data.allMarkdownRemark.group} />
+          <CategoryFilter categoryList={data.home.group} />
           <PostTitle>{postTitle}</PostTitle>
-          <PostGrid posts={posts} />
+          <PostGrid posts={posts.slice(0,2)} />
         </Content>
       </Main>
-    </Layout>
+    </Layout> */}
+    </>
+   
   )
 }
 
@@ -94,6 +130,28 @@ const Content = styled.div`
   }
 `
 
+
+const ContentProject = styled.div`
+  box-sizing: content-box;
+  width: 87.5%;
+  max-width: var(--width);
+  padding-top: var(--sizing-lg);
+  padding-bottom: var(--sizing-lg);
+  margin: 0 auto;
+  background-color:rgb(255,255,255);
+
+  @media (max-width: ${({ theme }) => theme.device.sm}) {
+    padding-top: var(--grid-gap-lg);
+    width: 87.5%;
+  }
+`
+
+const MainProject = styled.main`
+  min-width: var(--min-width);
+  min-height: calc(100vh - var(--nav-height) - var(--footer-height));
+  background-color: rgb(255,255,255);
+`
+
 const PostTitle = styled.h2`
   font-size: 2rem;
   font-weight: var(--font-weight-extra-bold);
@@ -104,10 +162,53 @@ const PostTitle = styled.h2`
     font-size: 1.75rem;
   }
 `
+const ProjectTitle = styled.h2`
+  font-size: 2rem;
+  font-weight: var(--font-weight-extra-bold);
+  margin-bottom: var(--sizing-md);
+  line-height: 1.21875;
+  background-color:rgb(255,255,255);
 
+  @media (max-width: ${({ theme }) => theme.device.sm}) {
+    font-size: 1.75rem;
+  }
+`
+
+const Container = styled(Markdown).attrs({
+  as: "main",
+})`
+  width: var(--post-width);
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 6rem;
+
+  @media (max-width: ${({ theme }) => theme.device.sm}) {
+    margin-top: var(--sizing-xl);
+    width: 87.5%;
+  }
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-top: var(--sizing-lg);
+
+    @media (max-width: ${({ theme }) => theme.device.sm}) {
+      font-size: 1.75rem;
+    }
+  }
+
+  h3 {
+    @media (max-width: ${({ theme }) => theme.device.sm}) {
+      font-size: 1.25rem;
+    }
+  }
+`
+// https://www.codeconcisely.com/posts/how-to-run-multiple-queries-in-gatsby/
 export const query = graphql`
-  query Home {
-    allMarkdownRemark(
+  query homeAndAbout {
+    home: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(posts/blog)/" } }
       limit: 2000
       sort: { frontmatter: { date: DESC } }
@@ -139,6 +240,17 @@ export const query = graphql`
         }
       }
     }
+
+    about: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/about/" } }) {
+      edges {
+        node {
+          html
+        }
+      }
+    }
+
+
+
   }
 `
 

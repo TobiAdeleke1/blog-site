@@ -11,15 +11,7 @@ const ROOT = "/"
 const EXTERNAL_LINK_EXP =
   /(https?:\/\/)?[\w\-~]+(\.[\w\-~]+)+(\/[\w\-~@:%]*)*(#[\w-]*)?(\?[^\s]*)?/gi
 
-// interface LinkListProps extends Pick<UseMenuReturnType, "setToggle"> {
-//   links: UseSiteMetaDataReturnType["menuLinks"]
-// }
 
-// const LinkList: React.FC<LinkListProps> = ({ links, setToggle }) => {
-//   const generateLink = (props: Queries.SiteSiteMetadataMenuLinks | null) => {
-//     if (isNil(props)) {
-//       return
-//     }
 const LinkList = ({ links, setToggle }) => {
   const generateLink = (props) => {
     if (isNil(props)) {

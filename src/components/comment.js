@@ -53,10 +53,6 @@ const Comment = () => {
       utterancesSelector
     )
 
-    // const utterancesEl = containerRef.current?.querySelector(
-    //     utterancesSelector
-    // ) as HTMLIFrameElement
-
     const postThemeMessage = () => {
       if (!utterancesEl) return
       const message = {

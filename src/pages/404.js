@@ -5,15 +5,7 @@ import styled from "styled-components"
 import SEO from "~/src/components/seo"
 import Layout from "~/src/layouts/layout"
 import GlowParticle from "~/src/utils/glowParticle"
-// import type { RGB } from "~/src/utils/glowParticle"
 
-// const COLORS: RGB[] = [
-//   { r: 255, g: 149, b: 0 }, // orange
-//   { r: 255, g: 45, b: 85 }, // pink
-//   { r: 175, g: 82, b: 222 }, // purple
-//   { r: 255, g: 59, b: 48 }, // red
-//   { r: 255, g: 204, b: 0 }, //yellow
-// ]
 const COLORS = [
   { r: 255, g: 149, b: 0 }, // orange
   { r: 255, g: 45, b: 85 }, // pink

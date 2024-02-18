@@ -12,12 +12,6 @@ import styledTheme from "~/src/styles/styledTheme"
 import packageJSON from "../../package.json"
 
 const { name, homepage } = packageJSON
-
-// const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
-//     const { theme, themeToggler } = useTheme()
-//     const { title, author } = useSiteMetadata()
-//     const copyrightStr = `Copyright © ${author}. Built with `
-
     
 const Layout = ({ children }) => {
   const { theme, themeToggler } = useTheme()
