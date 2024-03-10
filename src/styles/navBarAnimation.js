@@ -1,6 +1,5 @@
 import { css } from "styled-components"
 
-// export const listAnimationCSS = (toggle: boolean) => {
 export const listAnimationCSS = (toggle) => {
   let styles = ""
   const MAX_NUM = 10

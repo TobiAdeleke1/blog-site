@@ -10,14 +10,3 @@ alt: "code block graphic"
 ## Using Map(), Filter() and Reduce()
 
 This starter kit uses the code highlight plugin 
-
-### MAP
-
-
-### Filter
-
-
-
-### Reduce
-
-

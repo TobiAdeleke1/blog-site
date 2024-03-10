@@ -1,12 +1,5 @@
 import { useLayoutEffect } from "react"
 
-// interface UseScrollCenterProps {
-//   ref: React.RefObject<HTMLUListElement>
-//   targetId: string
-// }
-
-// const useScrollCenter = ({ ref, targetId }: UseScrollCenterProps) => {
-//   useLayoutEffect(() => {
 
 const useScrollCenter = ({ ref, targetId }) => {
   useLayoutEffect(() => {
@@ -23,9 +16,6 @@ const useScrollCenter = ({ ref, targetId }) => {
       return
     }
 
-    // const activeCategoryEl = categoryWrapEl.querySelector<HTMLUListElement>(
-    //   `#${targetId}`
-    // )
 
     const activeCategoryEl = categoryWrapEl.querySelector(
       `#${targetId}`

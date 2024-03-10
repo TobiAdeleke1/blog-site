@@ -1,7 +1,6 @@
 import React from "react"
 
 import styled, { ThemeProvider } from "styled-components"
-
 import NavBar from "~/src/components/navBar/navBar"
 import useSiteMetadata from "~/src/hooks/useSiteMetadata"
 import useTheme from "~/src/hooks/useTheme"

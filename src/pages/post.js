@@ -1,9 +1,6 @@
 import React, { useLayoutEffect, useState } from "react"
-// import type { PageProps } from "gatsby"
-// import { PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-
 import CategoryFilter from "~/src/components/categoryFilter"
 import PostGrid from "~/src/components/postGrid"
 import SEO from "~/src/components/seo"

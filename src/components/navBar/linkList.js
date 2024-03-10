@@ -3,10 +3,6 @@ import React from "react"
 import { Link } from "gatsby"
 import { isNil } from "lodash"
 
-// import type { UseSiteMetaDataReturnType } from "~/src/hooks/useSiteMetadata"
-
-// import type { UseMenuReturnType } from "./useMenu"
-
 const ROOT = "/"
 const EXTERNAL_LINK_EXP =
   /(https?:\/\/)?[\w\-~]+(\.[\w\-~]+)+(\/[\w\-~@:%]*)*(#[\w-]*)?(\?[^\s]*)?/gi

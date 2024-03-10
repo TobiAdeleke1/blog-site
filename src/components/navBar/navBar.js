@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import styled, { ThemeContext } from "styled-components"
 
 import useSiteMetadata from "~/src/hooks/useSiteMetadata"
-// import type { UseThemeReturnType } from "~/src/hooks/useTheme"
 import Background from "~/src/styles/background"
 import {
   curtainAnimationCSS,
@@ -16,20 +15,11 @@ import LinkList from "./linkList"
 import MenuIcon from "./menuIcon"
 import ThemeToggleButton from "./themeToggleButton"
 import useMenu from "./useMenu"
-// import type { UseMenuReturnType } from "./useMenu"
 
-// interface NavBarProps {
-//   title?: string | null
-//   themeToggler: UseThemeReturnType["themeToggler"]
-// }
 
-// const NavBar: React.FC<NavBarProps> = ({ title, themeToggler }) => {
 const NavBar = ({ title, themeToggler }) => {
   const { menuLinks } = useSiteMetadata()
   const { device } = useContext(ThemeContext)
-  // const navRef = useRef<HTMLElement>(null)
-  // const curtainRef = useRef<HTMLDivElement>(null)
-  // const listRef = useRef<HTMLUListElement>(null)
   const navRef = useRef(null)
   const curtainRef = useRef(null)
   const listRef = useRef(null)
@@ -65,7 +55,6 @@ const NavBar = ({ title, themeToggler }) => {
   )
 }
 
-// type Toggleable = Pick<UseMenuReturnType, "toggle">
 
 const Nav = styled.nav`
   min-width: var(--min-width);

@@ -4,16 +4,9 @@ import styled from "styled-components"
 
 import Category from "~/src/styles/category"
 import DateTime from "~/src/styles/dateTime"
-// import type Post from "~/src/types/Post"
 
 import CenteredImg from "./centeredImg"
 
-// type CardProps = Pick<
-//   Post,
-//   "thumbnail" | "alt" | "category" | "title" | "desc" | "date"
-// >
-
-// const Card: React.FC<CardProps> = ({
 const Card = ({
   thumbnail,
   alt,
@@ -31,7 +24,6 @@ const Card = ({
           <Title>{title}</Title>
           <Desc>{desc}</Desc>
         </div>
-        {/* <DateTime dateTime={date!}>{date}</DateTime> */}
         <DateTime dateTime={date}>{date}</DateTime>
       </Text>
     </Wrapper>

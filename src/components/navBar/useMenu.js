@@ -2,25 +2,8 @@ import { useCallback, useEffect, useRef, useState } from "react"
 
 import disableScroll from "disable-scroll"
 
-// import type styledTheme from "~/src/styles/styledTheme"
-
-// interface UseMenuProps {
-//   navRef: React.RefObject<HTMLElement> | null
-//   curtainRef: React.RefObject<HTMLDivElement> | null
-//   listRef: React.RefObject<HTMLUListElement> | null
-//   device: (typeof styledTheme)["device"]
-// }
-
-// interface NonNullableRef<Type> extends NonNullable<React.RefObject<Type>> {
-//   current: Type
-// }
-
-
 const isNonNullableRef = (ref) => !!(ref && ref.current)
 
-// const isNonNullableRef = <Type>(
-//   ref: React.RefObject<Type> | null
-// ): ref is NonNullableRef<Type> => !!(ref && ref.current)
 
 const FOCUSABLE_TABINDEX = 0
 const NON_FOCUSABLE_TABINDEX = -1
@@ -31,7 +14,7 @@ const TAB_CODE = "Tab"
 // const useMenu = ({ navRef, curtainRef, listRef, device }: UseMenuProps) => {
 const useMenu = ({ navRef, curtainRef, listRef, device }) => {
   const [toggle, setToggle] = useState(false)
-  // const mql = useRef<MediaQueryList>()
+
   const mql = useRef()
 
   const handleClick = () =>

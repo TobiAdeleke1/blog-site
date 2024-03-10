@@ -1,20 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react"
 
-// import type Post from "~/src/types/Post"
 
-// interface UseInfiniteScrollProps {
-//   posts: Post[]
-//   scrollEdgeRef: React.RefObject<HTMLDivElement>
-//   maxPostNum: number
-//   offsetY: number
-// }
-
-// const useInfiniteScroll = ({
-//   posts,
-//   scrollEdgeRef,
-//   maxPostNum = 10,
-//   offsetY = 400,
-// }: UseInfiniteScrollProps) => {
 const useInfiniteScroll = ({
   posts,
   scrollEdgeRef,
@@ -22,12 +8,10 @@ const useInfiniteScroll = ({
   offsetY = 400,
 }) => {
   const [hasMore, setHasMore] = useState(false)
-  // const [currentList, setCurrentList] = useState<Post[]>([])
   const [currentList, setCurrentList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [observerLoading, setObserverLoading] = useState(false)
 
-  // const observer = useRef<IntersectionObserver>()
   const observer = useRef()
 
   useLayoutEffect(() => {
