@@ -16,6 +16,8 @@ const Home = ({
   const [postsProj, setpostsProj] = useState([])
   const currentCategory = pageContext.category
   
+  
+  
   const postData = data.home.edges
   const postProject = data.projects.edges
 
@@ -58,8 +60,7 @@ const Home = ({
       const { slug } = node.fields
       const { title, desc, date, category, thumbnail, alt } = node.frontmatter
       const { childImageSharp } = thumbnail
-      
-      let amendedSlug = slug // TODO: need to register this URL SOMEWHERE
+     
       setpostsProj(prevPost => [
         ...prevPost,
         {
@@ -94,19 +95,19 @@ const Home = ({
        >
        
        </Container> 
-       
+        <Main>
+          <Content>
+            <ProjectTitle>Notable Projects</ProjectTitle>
+            <PostGrid posts={postsProj.slice(0,2)} />
+          </Content>
+        </Main>    
        <Main>
         <Content>
           <PostTitle>{postTitle}</PostTitle>
           <PostGrid posts={posts.slice(0,2)} />
         </Content>
         </Main>
-        <Main>
-          <Content>
-            <ProjectTitle>Notable Projects</ProjectTitle>
-            <PostGrid posts={postsProj.slice(0,2)} />
-          </Content>
-        </Main>        
+           
      </Layout>
     </>
    

@@ -1,8 +1,8 @@
 ---
 title: "Code Highlight"
-category: "Python"
+category: "JavaScript"
 date: "2020-02-01 12:00:00 +09:00"
-desc: "Test Markdown Code Highlight"
+desc: "Residential booking web application"
 thumbnail: "./images/code-block/thumbnail.jpg"
 alt: "code block graphic"
 ---

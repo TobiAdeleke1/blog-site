@@ -7,7 +7,7 @@ import SEO from "~/src/components/seo"
 import useSiteMetadata from "~/src/hooks/useSiteMetadata"
 import Layout from "~/src/layouts/layout"
 
-const Post = ({
+const Projects = ({
   pageContext,
   data,
 }) => {
@@ -49,7 +49,7 @@ const Post = ({
 
   return (
     <Layout>
-      <SEO title="Post" />
+      <SEO title="Projects" />
       <Main>
         <Content>
           <CategoryFilter categoryList={data.allMarkdownRemark.group} />
@@ -92,41 +92,44 @@ const PostTitle = styled.h2`
   }
 `
 
+
+
+
 export const query = graphql`
-  query Post {
+  query Projects {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(posts/blog)/" } }
-      limit: 2000
-      sort: { frontmatter: { date: DESC } }
-    ) {
-      group(field: { frontmatter: { category: SELECT } }) {
-        fieldValue
+        filter: { fileAbsolutePath: { regex: "/(posts/projects)/" } }
+        limit: 2000
+        sort: { frontmatter: { date: DESC } }
+      ) {
+        group(field: { frontmatter: { category: SELECT } }) {
+          fieldValue
+          totalCount
+        }
         totalCount
-      }
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            category
-            date(formatString: "YYYY-MM-DD")
-            desc
-            thumbnail {
-              childImageSharp {
-                id
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              category
+              date(formatString: "YYYY-MM-DD")
+              desc
+              thumbnail {
+                childImageSharp {
+                  id
+                }
+                base
               }
-              base
+              alt
             }
-            alt
-          }
-          fields {
-            slug
+            fields {
+              slug
+            }
           }
         }
       }
-    }
   }
 `
 
-export default Post
+export default Projects

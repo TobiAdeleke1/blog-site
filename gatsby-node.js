@@ -20,10 +20,12 @@ exports.createPages = async ({ graphql, actions }) => {
   const mainTemplate = path.resolve(`./src/pages/index.js`)
   const blogPostTemplate = path.resolve(`./src/templates/blogPost.js`)
 
+  // filter: { fileAbsolutePath: { regex: "/(posts/blog)/" } }
+
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/(posts/blog)/" } }
+        filter: { fileAbsolutePath: { regex: "/(posts)/" } }
         sort: { frontmatter: { date: DESC } }
         limit: 2000
       ) {
@@ -35,6 +37,8 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+     
+  
       categoriesGroup: allMarkdownRemark(limit: 2000) {
         group(field: { frontmatter: { category: SELECT } }) {
           fieldValue
@@ -42,11 +46,13 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
+  
   `)
 
   const posts = result.data.postsRemark.edges
 
   posts.forEach(({ node }) => {
+    console.log(node.fields.slug)
     createPage({
       path: node.fields.slug,
       component: blogPostTemplate,
@@ -55,6 +61,9 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+
+
 
   const categories = result.data.categoriesGroup.group
 
@@ -67,4 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  
+
 }
