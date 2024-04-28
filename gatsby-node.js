@@ -38,8 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-     
-  
+    
       categoriesGroup: allMarkdownRemark(limit: 2000) {
         group(field: { frontmatter: { category: SELECT } }) {
           fieldValue

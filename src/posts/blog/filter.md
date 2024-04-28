@@ -2,8 +2,8 @@
 title: "Filter"
 category: "JavaScript"
 date: "2024-04-08 12:00:00 +09:00"
-desc: "Test Markdown Code Highlight"
-thumbnail: "./images/code-block/thumbnail.jpg"
+desc: "Using Dilter() method on arrays"
+thumbnail: "./images/code-block/filter.png"
 alt: "code block graphic"
 ---
 

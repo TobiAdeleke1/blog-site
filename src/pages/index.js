@@ -38,6 +38,7 @@ const Home = ({
       const { id } = node
       const { slug } = node.fields
       const { title, desc, date, category, thumbnail, alt } = node.frontmatter
+      console.log("Post thumbnail",thumbnail );
       const { childImageSharp } = thumbnail
 
       setPosts(prevPost => [
@@ -59,6 +60,8 @@ const Home = ({
       const { id } = node
       const { slug } = node.fields
       const { title, desc, date, category, thumbnail, alt } = node.frontmatter
+
+      console.log("Projects thumbnail",thumbnail );
       const { childImageSharp } = thumbnail
      
       setpostsProj(prevPost => [

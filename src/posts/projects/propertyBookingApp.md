@@ -3,7 +3,7 @@ title: "Residential HomeBooking App"
 category: "Full Stack Project"
 date: "2024-04-01 12:00:00 +09:00"
 desc: "Residential booking web application"
-thumbnail: "./images/propertyProject/home_page.png"
+thumbnail: "./project-images/propertyProject/home_page.png"
 alt: "Residential Property Booking Home page"
 ---
 ## Residential HomeBooking App

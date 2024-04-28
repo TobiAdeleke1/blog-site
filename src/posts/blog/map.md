@@ -2,8 +2,8 @@
 title: "Map"
 category: "JavaScript"
 date: "2024-04-01 12:00:00 +09:00"
-desc: "Test Markdown Code Highlight"
-thumbnail: "./images/code-blockmap_design.png"
+desc: "Using Map() method on arrays"
+thumbnail: "./images/code-block/map_design.png"
 alt: "code block graphic"
 ---
 
