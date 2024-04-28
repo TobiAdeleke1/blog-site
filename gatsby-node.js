@@ -17,7 +17,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const mainTemplate = path.resolve(`./src/pages/index.js`)
+  // const mainTemplate = path.resolve(`./src/pages/index.js`)
+  const mainTemplate = path.resolve(`./src/pages/post.js`)
   const blogPostTemplate = path.resolve(`./src/templates/blogPost.js`)
 
   // filter: { fileAbsolutePath: { regex: "/(posts/blog)/" } }
@@ -52,7 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.postsRemark.edges
 
   posts.forEach(({ node }) => {
-    console.log(node.fields.slug)
+ 
     createPage({
       path: node.fields.slug,
       component: blogPostTemplate,
