@@ -2,7 +2,7 @@
 title: "Filter"
 category: "JavaScript"
 date: "2024-04-08 12:00:00 +09:00"
-desc: "Using Dilter() method on arrays"
+desc: "Using Filter() method on arrays"
 thumbnail: "./images/code-block/filter.png"
 alt: "code block graphic"
 ---
