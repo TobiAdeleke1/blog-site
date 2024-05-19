@@ -32,7 +32,7 @@ A Flask application allow uses to create a task and appoint a buddy which remind
     FLASK_RUN_PORT=8080
     FLASK_DEBUG=1
     FLASK_ENV="development"
-    SECRET_KEY='9OLWxND4o83j4Kty567luy'
+    SECRET_KEY='yoursercretkey'
     DATABASE_URL=postgresql://buddyPostgres:buddySecret@db:5432/buddyDB
     SQL_HOST=db
     SQL_PORT=5432
