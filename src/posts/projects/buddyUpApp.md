@@ -1,8 +1,8 @@
 ---
-title: "Code Highlight"
+title: "Buddy Up Python application"
 category: "Full Stack Project"
 date: "2024-04-21 12:00:00 +09:00"
-desc: "Residential booking web application"
+desc: "Buddy Up Python application"
 thumbnail: "./project-images/project-code-block/buddy.png"
 alt: "code block graphic"
 ---
