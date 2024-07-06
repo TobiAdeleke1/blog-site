@@ -13,13 +13,13 @@ We can use the range() function to generate an integer sequence. With optional i
     ```python
     l1 = list(range(20))
     ```
-    ![Output of a single range value ](./images/writings/l1_range.png) 
+    ![Output of a single range value](./images/writings/l1_range.png) 
 
 - range(__start_num__,__end_num__) produces an integer sequence from start_num to end_num-1.
     ```python
      l2 = list(range(12, 21))
     ```
-    ![Output of l2 ](./images/writings/l2_range.png)
+    ![Output of l2](./images/writings/l2_range.png)
 
 - range(__start_num__,__end_num__,__step__) produces an integer sequence from start_num to end_num-1 with step has the difference between neighboring integer. 
     ```python
@@ -44,21 +44,21 @@ Firstly, let us define some example sequences has the following.
     s1 = "potatochips"
 ```
 - example_sequence[__index__] to access the _n-th_ item in the sequence where n = 3.Also example_sequence[0] will return the first item, and example_sequence[-1] will return the last item.
-    ![Output of slice 1 ](./images/writings/slice1.png)
+    ![Output of slice 1](./images/writings/slice1.png)
    
 
 - example_sequence[__start:end__] to access a consecutive subset of the sequence, up to end-1 items.
-    ![Output of slice 2 ](./images/writings/slice2.png)
+    ![Output of slice 2](./images/writings/slice2.png)
   
 - example_sequence[__start:end:step__] to better control what subset in the sequence we would like returned.
     1. To retrive every second item between the first and the fifth in the sequence. 
-        ![Output of slice 3 ](./images/writings/slice3.png)
+        ![Output of slice 3](./images/writings/slice3.png)
     
     2. To retrive every second item in the sequence.
-        ![Output of slice 4 ](./images/writings/slice4.png)
+        ![Output of slice 4](./images/writings/slice4.png)
     
     3. To retrive every item in the sequence starting from the last to the first.
-        ![Output of slice 5 ](./images/writings/slice5.png)
+        ![Output of slice 5](./images/writings/slice5.png)
 
 
 
